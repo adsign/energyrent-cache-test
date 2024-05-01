@@ -1,15 +1,8 @@
 import { fetchArticles } from "@/data/fetch";
-// import { notFound } from "next/navigation";
 
 export default async function TestPage({ params }: { params: { lang: string; test: string; } }) {
   const data1 = await fetchArticles("no", 10);
   const data2 = await fetchArticles("en", 10);
-
-  /*
-  if (params.test === 'notfound') {
-    return notFound();
-  }
-  */
 
   return (
     <main>
