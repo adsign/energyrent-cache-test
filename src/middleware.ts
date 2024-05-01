@@ -14,7 +14,6 @@ export async function middleware(request: NextRequest) {
 	headersWithLocale.set('x-test-header', locale);
 
 	const newPath = `/${locale}${nextUrl.pathname}`;
-	console.log(newPath);
 	nextUrl.pathname = newPath;
 	return NextResponse.rewrite(nextUrl, { headers: headersWithLocale });
 }

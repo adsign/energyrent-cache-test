@@ -1,3 +1,4 @@
+import Navbar from "@/componenets/Navbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,13 +7,19 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  params, children,
 }: Readonly<{
+  params: { lang: string; };
   children: React.ReactNode;
 }>) {
+  const locale = params.lang as 'en';
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <p>From layout: {params.lang}</p>
+        <Navbar locale={locale}/>
+        {children}
+      </body>
     </html>
   );
 }

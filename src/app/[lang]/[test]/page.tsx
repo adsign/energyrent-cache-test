@@ -1,18 +1,19 @@
 import { fetchArticles } from "@/data/fetch";
 
-export default async function TestPage() {
-  const data1 = await fetchArticles("no", 1);
-  const data2 = await fetchArticles("en", 1);
+export default async function TestPage({ params }: { params: { lang: string; test: string; } }) {
+  const data1 = await fetchArticles("no", 10);
+  const data2 = await fetchArticles("en", 10);
 
   return (
     <main>
-        <h2>Test data 1</h2>
+        <h2>From route: locale {params.lang} slug {params.test}</h2>
+        <h3>data1</h3>
         <code>
-          {JSON.stringify(data1, null, 2)}
+          {data1.length}
         </code>
-        <h2>Test data 2</h2>
+        <h3>data2</h3>
         <code>
-          {JSON.stringify(data2, null, 2)}
+          {data2.length}
         </code>
     </main>
   );
