@@ -1,3 +1,4 @@
+import CookieNotice from "@/componenets/CookieNotice";
 import Navbar from "@/componenets/Navbar";
 import type { Metadata } from "next";
 
@@ -18,7 +19,9 @@ export default function RootLayout({
       <body>
         <p>From layout: {params.lang}</p>
         <Navbar locale={locale}/>
+        
         {children}
+        <CookieNotice locale={locale} />
       </body>
     </html>
   );
